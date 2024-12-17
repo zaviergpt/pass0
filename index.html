@@ -3,6 +3,7 @@
     <head>
         <title></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
             * {
@@ -23,9 +24,145 @@
             .screen, .screen .tab {
                 display: none;
             }
+            .screen#login-screen {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 250px;
+            }
+            .screen#login-screen .logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: calc(35px/2);
+            }
+            .screen#login-screen .logo img {
+                height: 35px;
+            }
+            .screen#login-screen .tab#vaults-tab ul {
+                list-style-type: none;
+            }
+            .screen#login-screen .tab#vaults-tab ul li:first-child {
+                text-align: center;
+                color: rgba(255, 255, 255, 0.5);
+            }
+            .screen#login-screen .tab#vaults-tab ul li:first-child:not(:only-child) {
+                display: none;
+            }
+            .screen#login-screen .tab#vaults-tab ul li:first-child a {
+                color: #0095FF;
+                text-decoration: none;
+            }
+            .screen#login-screen .tab#vaults-tab ul li:not(:first-child) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 10px 0px;
+            }
+            .screen#login-screen .tab#vaults-tab ul li:not(:first-child) .info {
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                width: 60%;
+                margin-right: 5%;
+                font-size: calc(15px/1.25);
+            }
+            .screen#login-screen .tab#vaults-tab ul li:not(:first-child) .info i {
+                font-size: calc(15px * 1.25);
+                margin-right: 10px;
+            }
+            .screen#login-screen .tab#vaults-tab ul li:not(:first-child) .info h1 {
+                font-size: calc(15px * 1.25);
+                line-height: calc(15px * 1.25);
+            }
+            .screen#login-screen .tab#vaults-tab ul li:not(:first-child) a {
+                width: 35%;
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                text-decoration: none;
+                color: #0095FF;
+            }
+            .screen#login-screen .tab#create-vault-tab ul, .screen#login-screen .tab#unlock-tab ul {
+                list-style-type: none;
+            }
+            .screen#login-screen .tab#create-vault-tab ul li, .screen#login-screen .tab#unlock-tab ul li {
+                margin: 10px 0px;
+            }
+            .screen#login-screen .tab#create-vault-tab ul li div, .screen#login-screen .tab#unlock-tab ul li div {
+                font-size: calc(15px/1.125);
+                margin-bottom: calc(10px/2)
+            }
+            .screen#login-screen .tab#create-vault-tab ul li input, .screen#login-screen .tab#unlock-tab ul li input {
+                background-color: rgba(255, 255, 255, 0.0125);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 15px;
+                padding: calc(15px/2) calc(15px/2 * 1.5);
+                color: #FFFFFF;
+                width: calc(100% - ((15px/2 * 1.5) * 2) - 2px);
+                border-radius: 5px;
+            }
+            .screen#login-screen .tab#create-vault-tab ul li:has(button), .screen#login-screen .tab#unlock-tab ul li:has(button) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                margin-top: 20px;
+            }
+            .screen#login-screen .tab#create-vault-tab ul li:has(button) button, .screen#login-screen .tab#unlock-tab ul li:has(button) button {
+                background-color: #FFFFFF;
+                color: #111111;
+                font-size: 15px;
+                padding: calc(15px/1.5) calc(15px * 1.5);
+                border-radius: calc(((15px/1.5) * 2) + 15px);
+                font-weight: 500;
+            }
+            .screen#login-screen .tab#unlock-tab span#unlock-span-name {
+                color: #0095FF;
+                margin-left: 2.5px;
+            }
         </style>
     </head>
     <body>
+        <div class="screen" id="login-screen">
+            <div class="logo">
+                <img src="./logo.svg">
+            </div>
+            <div class="tab" id="vaults-tab">
+                <ul id="vaults-ul-list"></ul>
+            </div>
+            <div class="tab" id="create-vault-tab">
+                <ul>
+                    <li>
+                        <div>Vault Name</div>
+                        <input type="text" id="create-vault-input-name">
+                    </li>
+                    <li>
+                        <div>Password</div>
+                        <input type="password" id="create-vault-input-password">
+                    </li>
+                    <li>
+                        <button id="create-vault-button-create">Create Vault</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab" id="unlock-tab">
+                <ul>
+                    <li>You're unlocking <span id="unlock-span-name"></span>.</li>
+                    <li>
+                        <div>Password</div>
+                        <input type="password" id="unlock-input-password">
+                    </li>
+                    <li>
+                        <button id="unlock-button-unlock">Unlock</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="screen" id="default-tab">
+            <div class="tab" id="emails-tab"></div>
+        </div>
     </body>
     <script>
         function selectTab(id) {
@@ -54,79 +191,186 @@
                 }
             }
         }
-        const API = (function(username, password){
-            if (!localStorage.getItem("vault")) localStorage.setItem("vault", JSON.stringify({ services: { unknown: [] } }))
-            vault = JSON.parse(localStorage.getItem("vault"))
-            key = (function(){
-                blocks = [{}, {}]
-                username.split("").forEach((character, index) => {
-                    if (!blocks[0][Math.floor(index/username.split("").length * 20)]) blocks[0][Math.floor(index/username.split("").length * 20)] = []
-                    blocks[0][Math.floor(index/username.split("").length * 20)].push(character.charCodeAt(0))
-                })
-                password.split("").forEach((character, index) => {
-                    if (!blocks[1][Math.floor(index/password.split("").length * 20)]) blocks[1][Math.floor(index/password.split("").length * 20)] = []
-                    blocks[1][Math.floor(index/password.split("").length * 20)].push(character.charCodeAt(0))
-                })
-                blocks = [
-                    Object.entries(blocks[0]).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[1].length)),
-                    Object.entries(blocks[1]).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[1].length))
-                ]
-                return Array.from({ length: blocks[0].length + blocks[1].length }, (value, index) => (blocks[0][index % blocks[0].length] ^ blocks[1][index % blocks[1].length]))
-            })()
+        const API = (function(){
+            if (!localStorage.getItem("pass0")) localStorage.setItem("pass0", JSON.stringify({}))
+            vaults = JSON.parse(localStorage.getItem("pass0"))
             return {
-                emails: {
-                    create(email) {
-                        if (vault.services[email]) return null
-                        vault.services[email] = []
-                        localStorage.setItem("vault", JSON.stringify(vault))
-                        return email
-                    },
+                vaults: {
                     all() {
-                        return Object.entries(vault.services).map((email) => email[0])
+                        console.log(Object.entries(vaults))
+                        return Object.entries(vaults).map((vault) => [vault[0], vault[1].hashed])
                     },
-                    generate(email, length=20) {
-                        if (!vault.services[email]) return null
-                        blocks = [key, {}]
-                        characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`1234567890-=[];',./~!@#$%^&*()_+{}|:<>?"
-                        email.split("").forEach((character, index) => {
-                            if (!blocks[1][Math.floor(index/email.split("").length * length)]) blocks[1][Math.floor(index/email.split("").length * length)] = []
-                            blocks[1][Math.floor(index/email.split("").length * length)].push(character.charCodeAt(0))
-                        })
-                        blocks[1] = Object.entries(blocks[1]).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[1].length))
-                        return Array.from({ length: length }, (value, index) => characters[(blocks[0][index % blocks[0].length] ^ blocks[1][index % blocks[1].length]) % characters.length]).join("")
-                    }
-                },
-                services(email) {
-                    if (!vault.services[email]) return null
-                    return {
-                        create(name) {
-                            if (vault.services[email].includes(name)) return null
-                            vault.services[email].push(name)
-                            localStorage.setItem("vault", JSON.stringify(vault))
-                            return name
-                        },
-                        all() {
-                            return vault.services[email]
-                        },
-                        generate(name, length=20) {
-                            if (!vault.services[email].includes(name)) return null
-                            blocks = [key, {}, {}]
-                            characters = "?><:|}{+_)(*&^%$#@!~/.,';][=-0987654321`ZYXWVUTSRQPONMLKJIHGFEDCBAzyxwvutsrqponmlkjihgfedcba"
-                            email.split("").forEach((character, index) => {
-                                if (!blocks[1][Math.floor(index/email.split("").length * length)]) blocks[1][Math.floor(index/email.split("").length * length)] = []
-                                blocks[1][Math.floor(index/email.split("").length * length)].push(character.charCodeAt(0))
+                    create(name, password) {
+                        if (vaults[name]) return null
+                        vaults[name] = { services: {}, hashed: (function(){
+                            blocks = {}
+                            password.split("").forEach((character, index) => {
+                                if (!blocks[Math.floor(index/password.split("").length * (2 ** 3))]) blocks[Math.floor(index/password.split("").length * (2 ** 3))] = []
+                                blocks[Math.floor(index/password.split("").length * (2 ** 3))].push(character.charCodeAt(0))
                             })
-                            name.split("").forEach((character, index) => {
-                                if (!blocks[1][Math.floor(index/name.split("").length * length)]) blocks[1][Math.floor(index/name.split("").length * length)] = []
-                                blocks[1][Math.floor(index/name.split("").length * length)].push(character.charCodeAt(0))
+                            return Object.entries(blocks).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[1].length) % 9).join("")
+                        })() }
+                        localStorage.setItem("pass0", JSON.stringify(vaults))
+                        return name
+                    },
+                    unlock(vaultId, password) {
+                        if (!vaults[vaultId] || vaults[vaultId].hashed !== (function(){
+                            blocks = {}
+                            password.split("").forEach((character, index) => {
+                                if (!blocks[Math.floor(index/password.split("").length * (2 ** 3))]) blocks[Math.floor(index/password.split("").length * (2 ** 3))] = []
+                                blocks[Math.floor(index/password.split("").length * (2 ** 3))].push(character.charCodeAt(0))
                             })
-                            blocks[1] = Object.entries(blocks[1]).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[1].length)),
-                            blocks[2] = Object.entries(blocks[2]).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[2].length))
-                            return Array.from({ length: length }, (value, index) => characters[((blocks[0][index % blocks[0].length] ^ blocks[1][index % blocks[1].length]) ^ blocks[2][index % blocks[2].length]) % characters.length]).join("")
+                            return Object.entries(blocks).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[1].length) % 9).join("")
+                        })()) return null
+                        key = (function(){
+                            blocks = [{}, {}]
+                            vaultId.split("").forEach((character, index) => {
+                                if (!blocks[0][Math.floor(index/vaultId.split("").length * 20)]) blocks[0][Math.floor(index/vaultId.split("").length * 20)] = []
+                                blocks[0][Math.floor(index/vaultId.split("").length * 20)].push(character.charCodeAt(0))
+                            })
+                            password.split("").forEach((character, index) => {
+                                if (!blocks[1][Math.floor(index/password.split("").length * 20)]) blocks[1][Math.floor(index/password.split("").length * 20)] = []
+                                blocks[1][Math.floor(index/password.split("").length * 20)].push(character.charCodeAt(0))
+                            })
+                            blocks = [
+                                Object.entries(blocks[0]).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[1].length)),
+                                Object.entries(blocks[1]).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[1].length))
+                            ]
+                            return Array.from({ length: blocks[0].length + blocks[1].length }, (value, index) => (blocks[0][index % blocks[0].length] ^ blocks[1][index % blocks[1].length]))
+                        })()
+                        return {
+                            emails: {
+                                create(email) {
+                                    if (vaults[vaultId].services[email]) return null
+                                    vaults[vaultId].services[email] = []
+                                    localStorage.setItem("pass0", JSON.stringify(vaults))
+                                    return email
+                                },
+                                all() {
+                                    return Object.entries(vaults[vaultId].services).map((email) => email[0])
+                                },
+                                generate(email, length=20) {
+                                    if (!vaults[vaultId].services[email]) return null
+                                    blocks = [key, {}]
+                                    characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`1234567890-=[];',./~!@#$%^&*()_+{}|:<>?"
+                                    email.split("").forEach((character, index) => {
+                                        if (!blocks[1][Math.floor(index/email.split("").length * length)]) blocks[1][Math.floor(index/email.split("").length * length)] = []
+                                        blocks[1][Math.floor(index/email.split("").length * length)].push(character.charCodeAt(0))
+                                    })
+                                    blocks[1] = Object.entries(blocks[1]).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[1].length))
+                                    return Array.from({ length: length }, (value, index) => characters[(blocks[0][index % blocks[0].length] ^ blocks[1][index % blocks[1].length]) % characters.length]).join("")
+                                }
+                            },
+                            services(email) {
+                                if (!vaults[vaultId].services[email]) return null
+                                return {
+                                    create(name) {
+                                        if (vaults[vaultId].services[email].includes(name)) return null
+                                        vaults[vaultId].services[email].push(name)
+                                        localStorage.setItem("pass0", JSON.stringify(vaults))
+                                        return name
+                                    },
+                                    all() {
+                                        return vaults[vaultId].services[email]
+                                    },
+                                    generate(name, length=20) {
+                                        if (!vaults[vaultId].services[email].includes(name)) return null
+                                        blocks = [key, {}, {}]
+                                        characters = "?><:|}{+_)(*&^%$#@!~/.,';][=-0987654321`ZYXWVUTSRQPONMLKJIHGFEDCBAzyxwvutsrqponmlkjihgfedcba"
+                                        email.split("").forEach((character, index) => {
+                                            if (!blocks[1][Math.floor(index/email.split("").length * length)]) blocks[1][Math.floor(index/email.split("").length * length)] = []
+                                            blocks[1][Math.floor(index/email.split("").length * length)].push(character.charCodeAt(0))
+                                        })
+                                        name.split("").forEach((character, index) => {
+                                            if (!blocks[1][Math.floor(index/name.split("").length * length)]) blocks[1][Math.floor(index/name.split("").length * length)] = []
+                                            blocks[1][Math.floor(index/name.split("").length * length)].push(character.charCodeAt(0))
+                                        })
+                                        blocks[1] = Object.entries(blocks[1]).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[1].length)),
+                                        blocks[2] = Object.entries(blocks[2]).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[2].length))
+                                        return Array.from({ length: length }, (value, index) => characters[((blocks[0][index % blocks[0].length] ^ blocks[1][index % blocks[1].length]) ^ blocks[2][index % blocks[2].length]) % characters.length]).join("")
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
-        })("", "")
+        })()
+        elements = {
+            login: {
+                vaults: {
+                    list: document.getElementById("vaults-ul-list")
+                },
+                create: {
+                    inputs: {
+                        name: document.getElementById("create-vault-input-name"),
+                        password: document.getElementById("create-vault-input-password")
+                    },
+                    buttons: {
+                        create: document.getElementById("create-vault-button-create")
+                    }
+                },
+                unlock: {
+                    span: {
+                        name: document.getElementById("unlock-span-name")
+                    },
+                    inputs: {
+                        password: document.getElementById("unlock-input-password")
+                    },
+                    buttons: {
+                        unlock: document.getElementById("unlock-button-unlock")
+                    }
+                }
+            }
+        }
+        window.addEventListener("load", () => {
+            window.addEventListener("hashchange", (event) => {
+                event.hash = JSON.parse(atob(window.location.hash.split("#")[1]))
+                if (event.hash[0] === "tab") {
+                    if (event.hash[1] === "vaults-tab") {
+                        elements.login.vaults.list.innerHTML = `<li>No vaults available. <a href="#WyJ0YWIiLCJjcmVhdGUtdmF1bHQtdGFiIl0=">Create one</a>.</li>`
+                        API.vaults.all().forEach((vault) => {
+                            vault = [vault, document.createElement("li")]
+                            vault[1].innerHTML = `
+                                <div class="info">
+                                    <i class="fa-solid fa-vault"></i>
+                                    <div>
+                                        <h1>${vault[0][0]}</h1>
+                                        <span>${vault[0][1]}</span>
+                                    </div>
+                                </div>
+                                <a href="#${btoa(JSON.stringify(["tab", "unlock-tab", vault[0][1]]))}">Unlock</a>
+                            `
+                            elements.login.vaults.list.appendChild(vault[1])
+                        })
+                    } else if (event.hash[1] === "create-vault-tab") {
+                        elements.login.create.buttons.create.onclick = function() {
+                            if (API.vaults.create(elements.login.create.inputs.name.value, elements.login.create.inputs.password.value)) {
+                                if (window.vault = API.vaults.unlock(elements.login.create.inputs.name.value, elements.login.create.inputs.password.value)) {
+                                    window.location.hash = "#" + btoa(JSON.stringify(["tab", "emails-tab"]))
+                                }
+                            } else {
+                                console.log("failed.")
+                            }
+                        }
+                    } else if (event.hash[1] === "unlock-tab" && event.hash[2]) {
+                        elements.login.unlock.span.name.textContent = "Vault #" + event.hash[2]
+                        elements.login.unlock.buttons.unlock.onclick = function() {
+                            if (window.vault = API.vaults.unlock(API.vaults.all().filter((vault) => vault[1] === event.hash[2]).pop()[0], elements.login.unlock.inputs.password.value)) {
+                                window.location.hash = "#" + btoa(JSON.stringify(["tab", "emails-tab"]))
+                            } else {
+                                console.log("failed")
+                            }
+                        }
+                    } else if (event.hash[1] === "emails-tab") {
+                        console.log(window.vault.emails.all())
+                    }
+                    selectTab(event.hash[1])
+                }
+                console.log(event.hash)
+            })
+            if (window.location.hash.length > 2) window.location.hash = "#"
+            window.location.hash = "#" + btoa(JSON.stringify(["tab", "vaults-tab"]))
+        })
     </script>
 </html>
