@@ -15,6 +15,7 @@
                 font-family: "Outfit", serif;
                 font-optical-sizing: auto;
                 font-style: normal;
+                -webkit-tap-highlight-color: transparent;
             }
             body {
                 background-color: #111111;
@@ -70,11 +71,13 @@
             }
             .screen#login-screen .tab#vaults-tab ul li:not(:first-child) .info i {
                 font-size: calc(15px * 1.25);
-                margin-right: 10px;
+                margin-right: 15px;
             }
             .screen#login-screen .tab#vaults-tab ul li:not(:first-child) .info h1 {
                 font-size: calc(15px * 1.25);
                 line-height: calc(15px * 1.25);
+                margin-bottom: 3px;
+                font-weight: 600;
             }
             .screen#login-screen .tab#vaults-tab ul li:not(:first-child) a {
                 width: 35%;
@@ -118,9 +121,287 @@
                 border-radius: calc(((15px/1.5) * 2) + 15px);
                 font-weight: 500;
             }
+            .screen#login-screen .tab#create-vault-tab ul li:has(button) button i, .screen#login-screen .tab#unlock-tab ul li:has(button) button i {
+                margin-right: 5px;
+            }
             .screen#login-screen .tab#unlock-tab span#unlock-span-name {
                 color: #0095FF;
                 margin-left: 2.5px;
+            }
+            .screen#default-screen {
+                margin: 30px;
+            }
+            .screen#default-screen .tab#home-tab h1:not(ul li h1) {
+                margin-top: calc(30px/1.375/1.1);
+                display: flex;
+                align-items: center;
+                justify-content: left;
+            }
+            .screen#default-screen .tab#home-tab h1:not(ul li h1) span {
+                width: calc(100% - 60px);
+                display: block;
+                font-size: calc(15px * 1.75);
+            }
+            .screen#default-screen .tab#home-tab h1:not(ul li h1) a {
+                width: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #FFFFFF;
+                padding: 2.5px;
+                color: #111111;
+                border-radius: 5px;
+                font-size: 15px;
+                font-weight: 400;
+                text-decoration: none;
+            }
+            .screen#default-screen .tab#home-tab h1:not(ul li h1) a i {
+                margin-right: 5px;
+            }
+            .screen#default-screen .tab#home-tab ul.headers {
+                display: flex;
+                font-size: 15px;
+                margin-bottom: calc(30px/1.375)
+            }
+            .screen#default-screen .tab#home-tab ul.headers li.logo {
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                height: calc(15px * 2);
+                width: 60%;
+            }
+            .screen#default-screen .tab#home-tab ul.headers li.logo img {
+                height: 100%;
+            }
+            .screen#default-screen .tab#home-tab ul.headers li:not(.logo) {
+                width: 40%;
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                height: calc(15px * 2);
+            }
+            .screen#default-screen .tab#home-tab ul.headers li:not(.logo) span {
+                margin-left: 5px;
+                color: #0095FF;
+            }
+            .screen#default-screen .tab#home-tab ul#home-ul-emails, .screen#default-screen .tab#home-tab ul#home-ul-services {
+                list-style-type: none;
+            }
+            .screen#default-screen .tab#home-tab ul#home-ul-emails li, .screen#default-screen .tab#home-tab ul#home-ul-services li {
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                margin: 10px 0px;
+            }
+            .screen#default-screen .tab#home-tab ul#home-ul-emails li:first-child, .screen#default-screen .tab#home-tab ul#home-ul-services li:first-child {
+                text-align: left;
+            }
+            .screen#default-screen .tab#home-tab ul#home-ul-emails li:first-child a, .screen#default-screen .tab#home-tab ul#home-ul-services li:first-child a {
+                margin-left: 5px;
+                color: #0095FF;
+                text-decoration: none;
+            }
+            .screen#default-screen .tab#home-tab ul#home-ul-emails li:first-child:not(:only-child), .screen#default-screen .tab#home-tab ul#home-ul-services li:first-child:not(:only-child) {
+                display: none;
+            }
+            .screen#default-screen .tab#home-tab ul#home-ul-services li.heading {
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                margin-top: 15px;
+            }
+            .screen#default-screen .tab#home-tab ul#home-ul-services :nth-child(1 of li.heading) {
+                margin-top: 10px;
+            }
+            .screen#default-screen .tab#home-tab ul#home-ul-services li.heading div:has(img) {
+                background-color: #FFFFFF;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: calc(50px/1.75);
+                margin-right: calc((50px/1.75)/3);
+                aspect-ratio: 1;
+                border-radius: 5px;
+            }
+            .screen#default-screen .tab#home-tab ul#home-ul-services li.heading b {
+                margin-left: 5px;
+            }
+            .screen#default-screen .tab#home-tab ul#home-ul-emails li:not(:first-child, .heading) div:has(img), .screen#default-screen .tab#home-tab ul#home-ul-services li:not(:first-child, .heading) div:has(img) {
+                background-color: #FFFFFF;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 50px;
+                margin-right: calc(50px/3.5);
+                aspect-ratio: 1;
+                border-radius: 5px;
+            }
+            .screen#default-screen .tab#home-tab ul#home-ul-emails li:not(:first-child, .heading) div:has(img) img, .screen#default-screen .tab#home-tab ul#home-ul-services li:not(:first-child, .heading) div:has(img) img, .screen#default-screen .tab#home-tab ul#home-ul-services li.heading div:has(img) img {
+                height: 50%;
+                width: 50%;
+            }
+            .screen#default-screen .tab#home-tab ul#home-ul-emails li:not(:first-child, .heading) div.info, .screen#default-screen .tab#home-tab ul#home-ul-services li:not(:first-child, .heading) div.info {
+                font-size: calc(15px/1.125);
+                width: calc(100% - 35px - 50px)
+            }
+            .screen#default-screen .tab#home-tab ul#home-ul-emails li:not(:first-child, .heading) a, .screen#default-screen .tab#home-tab ul#home-ul-services li:not(:first-child, .heading) a {
+                width: 35px;
+                aspect-ratio: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px;
+                background-color: rgba(255, 255, 255, 0.05);
+                color: rgba(255, 255, 255, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .screen#default-screen .tab#home-tab ul#home-ul-emails li:not(:first-child, .heading) div.info h1, .screen#default-screen .tab#home-tab ul#home-ul-services li:not(:first-child, .heading) div.info h1 {
+                font-size: calc(15px * 1.125);
+            }
+            .screen#default-screen ul.navigation {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                list-style-type: none;
+                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25))
+            }
+            .screen#default-screen ul.navigation li {
+                width: 50%;
+                text-align: center;
+            }
+            .screen#default-screen ul.navigation li a {
+                font-size: calc(15px/1.25);
+                color: #FFFFFF;
+                opacity: 0.5;
+                text-decoration: none;
+            }
+            .screen#default-screen ul.navigation li a i {
+                font-size: calc(15px * 1.25);
+                margin-bottom: 5px;
+            }
+            .screen#default-screen ul.navigation li a.active {
+                opacity: 1;
+            }
+            .screen#default-screen div.overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.75);
+                backdrop-filter: blur(2.5px);
+                display: none;
+                align-items: center;
+                justify-content: center;
+            }
+            .screen#default-screen div.overlay div.container {
+                width: 250px;
+            }
+            .screen#default-screen div.overlay div.container div.section {
+                display: none;
+            }
+            .screen#default-screen div.overlay div.container div.section#password-section div:has(img) {
+                background-color: #FFFFFF;
+                margin: 0px auto;
+                width: 50%;
+                aspect-ratio: 1;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .screen#default-screen div.overlay div.container div.section#password-section div:has(img) img {
+                width: 50%;
+            }
+            .screen#default-screen div.overlay div.container div.section#password-section div.info {
+                text-align: center;
+                font-size: calc(15px/1.25);
+                margin: 20px 0px;
+            }
+            .screen#default-screen div.overlay div.container div.section#password-section div.info h1 {
+                font-size: calc(15px * 1.25);
+                line-height: calc(15px * 1.125);
+                margin-bottom: 2.5px;
+            }
+            .screen#default-screen div.overlay div.container div.section#password-section div:has(input) {
+                background-color: rgba(255, 255, 255, 0.9);
+                padding: 2.5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px;
+            }
+            .screen#default-screen div.overlay div.container div.section#password-section div:has(input) input {
+                background-color: rgba(0, 0, 0, 0);
+                padding: 0px 11.25px;
+                width: calc(100% - (((15px * 2.5) + 11.25px) * 2));
+                font-family: monospace;
+            }
+            .screen#default-screen div.overlay div.container div.section#password-section div:has(input) button {
+                height: calc(15px * 2.5);
+                aspect-ratio: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 15px;
+                background-color: rgba(0, 0, 0, 0);
+                color: rgba(0, 0, 0, 0.75)
+            }
+            .screen#default-screen div.overlay div.container div.section#password-section div:has(#home-overlay-button-close) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 20px;
+            }
+            .screen#default-screen div.overlay div.container div.section#password-section div:has(#home-overlay-button-close) #home-overlay-button-close {
+                background-color: #FFFFFF;
+                color: #111111;
+                font-size: 15px;
+                padding: calc(15px/1.5) calc(15px * 1.5);
+                border-radius: calc(((15px/1.5) * 2) + 15px);
+                font-weight: 500;
+            }
+            .screen#default-screen div.overlay div.container ul.section#create-section {
+                list-style-type: none;
+            }
+            .screen#default-screen div.overlay div.container ul.section#create-section li span {
+                display: block;
+                font-size: calc(15px/1.125);
+                margin-bottom: calc((15px/1.125)/3);
+            }
+            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) {
+                height: calc(15px * 2.5);
+                width: calc(100% - (1px * 2));
+                font-size: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(255, 255, 255, 0.9);
+                border-radius: 5px;
+                padding: 0px 1px;
+            }
+            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) div {
+                height: 100%;
+                aspect-ratio: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) div img {
+                height: 50%;
+                width: 50%;
+            }
+            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) select {
+                appearance: none;
+                background-color: rgba(0, 0, 0, 0);
+                text-align: left;
+                padding-right: 11.25px;
+                width: calc(100% - (11.25px * 1));
             }
         </style>
     </head>
@@ -136,14 +417,14 @@
                 <ul>
                     <li>
                         <div>Vault Name</div>
-                        <input type="text" id="create-vault-input-name">
+                        <input type="text" id="create-vault-input-name" autocomplete="off">
                     </li>
                     <li>
                         <div>Password</div>
-                        <input type="password" id="create-vault-input-password">
+                        <input type="password" id="create-vault-input-password" autocomplete="off">
                     </li>
                     <li>
-                        <button id="create-vault-button-create">Create Vault</button>
+                        <button id="create-vault-button-create"><i class="fa-solid fa-plus"></i> Create Vault</button>
                     </li>
                 </ul>
             </div>
@@ -152,7 +433,7 @@
                     <li>You're unlocking <span id="unlock-span-name"></span>.</li>
                     <li>
                         <div>Password</div>
-                        <input type="password" id="unlock-input-password">
+                        <input type="password" id="unlock-input-password" autocomplete="off">
                     </li>
                     <li>
                         <button id="unlock-button-unlock">Unlock</button>
@@ -160,8 +441,68 @@
                 </ul>
             </div>
         </div>
-        <div class="screen" id="default-tab">
-            <div class="tab" id="emails-tab"></div>
+        <div class="screen" id="default-screen">
+            <div class="tab" id="home-tab">
+                <ul class="headers">
+                    <li class="logo"><img src="./logo.svg"></li>
+                    <li>Vault <span id="home-span-vaultId"></span></li>
+                </ul>
+                <h1><span>Emails</span><a href="#WyJvdmVybGF5IiwiY3JlYXRlIiwiZW1haWxzIl0="><i class="fa-solid fa-plus"></i> Add</a></h1>
+                <ul id="home-ul-emails"></ul>
+                <h1><span>Services</span><a href="#WyJvdmVybGF5IiwiY3JlYXRlIiwic2VydmljZXMiXQ=="><i class="fa-solid fa-plus"></i> Add</a></h1>
+                <ul id="home-ul-services"></ul>
+            </div>
+            <ul class="navigation">
+                <li><a href="#WyJ0YWIiLCJob21lLXRhYiJd">
+                    <i class="fa-solid fa-house"></i>
+                    <div>Home</div>
+                </a></li>
+                <li><a>
+                    <i class="fa-solid fa-gear"></i>
+                    <div>Settings</div>
+                </a></li>
+            </ul>
+            <div class="overlay" id="home-overlay">
+                <div class="container">
+                    <div class="section" id="password-section">
+                        <div><img id="home-overlay-img-logo"></div>
+                        <div class="info">
+                            <h1 id="home-overlay-h1-name">Starbucks</h1>
+                            <span id="home-overlay-span-email">blyde33@gmail.com</span>
+                        </div>
+                        <div>
+                            <input type="text">
+                            <button id="home-overlay-button-copy"><i class="fa-solid fa-copy"></i></button>
+                            <button id="home-overlay-button-eye"><i class="fa-solid fa-eye"></i></button>
+                        </div>
+                        <div>
+                            <button id="home-overlay-button-close">Close</button>
+                        </div>
+                    </div>
+                    <ul class="section" id="create-section">
+                        <li>
+                            <span>Email</span>
+                            <div>
+                                <div>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg">
+                                </div>
+                                <select>
+                                    <option>blyde33@gmail.com</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <span>Service</span>
+                            <div>
+                                <div>
+                                    <img>
+                                </div>
+                                <input type="text">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </body>
     <script>
@@ -169,10 +510,23 @@
             parent = null
             tabs = document.getElementsByClassName("tab")
             screens = document.getElementsByClassName("screen")
+            navigation = document.getElementsByClassName("navigation")[0].getElementsByTagName("a")
             for (var tab in tabs) {
                 tab = tabs[tab]
                 if (tab.className === "tab") {
                     if (tab.id === id) {
+                        if (tab.parentElement.id === "default-screen") {
+                            for (var link in navigation) {
+                                link = navigation[link]
+                                if (link.href) {
+                                    if (JSON.parse(atob(link.href.split("#")[1]))[1] === tab.id) {
+                                        link.className = "active"
+                                    } else {
+                                        link.className = ""
+                                    }
+                                }
+                            }
+                        }
                         parent = tab.parentElement
                         tab.style.display = "block"
                     } else {
@@ -203,24 +557,34 @@
                     create(name, password) {
                         if (vaults[name]) return null
                         vaults[name] = { services: {}, hashed: (function(){
-                            blocks = {}
-                            password.split("").forEach((character, index) => {
-                                if (!blocks[Math.floor(index/password.split("").length * (2 ** 3))]) blocks[Math.floor(index/password.split("").length * (2 ** 3))] = []
-                                blocks[Math.floor(index/password.split("").length * (2 ** 3))].push(character.charCodeAt(0))
+                            blocks = [{}, {}]
+                            name.split("").forEach((character, index) => {
+                                if (!blocks[0][Math.floor(index/name.split("").length * (2 ** 3))]) blocks[0][Math.floor(index/name.split("").length * (2 ** 3))] = []
+                                blocks[0][Math.floor(index/name.split("").length * (2 ** 3))].push(character.charCodeAt(0))
                             })
-                            return Object.entries(blocks).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[1].length) % 9).join("")
+                            password.split("").forEach((character, index) => {
+                                if (!blocks[1][Math.floor(index/password.split("").length * (2 ** 3))]) blocks[1][Math.floor(index/password.split("").length * (2 ** 3))] = []
+                                blocks[1][Math.floor(index/password.split("").length * (2 ** 3))].push(character.charCodeAt(0))
+                            })
+                            blocks = blocks.map((block) => Object.entries(block).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[1].length)))
+                            return blocks[0].map((character, index) => (blocks[0][index] ^ blocks[1][index]) % 9).join("")
                         })() }
                         localStorage.setItem("pass0", JSON.stringify(vaults))
                         return name
                     },
                     unlock(vaultId, password) {
                         if (!vaults[vaultId] || vaults[vaultId].hashed !== (function(){
-                            blocks = {}
-                            password.split("").forEach((character, index) => {
-                                if (!blocks[Math.floor(index/password.split("").length * (2 ** 3))]) blocks[Math.floor(index/password.split("").length * (2 ** 3))] = []
-                                blocks[Math.floor(index/password.split("").length * (2 ** 3))].push(character.charCodeAt(0))
+                            blocks = [{}, {}]
+                            vaultId.split("").forEach((character, index) => {
+                                if (!blocks[0][Math.floor(index/vaultId.split("").length * (2 ** 3))]) blocks[0][Math.floor(index/vaultId.split("").length * (2 ** 3))] = []
+                                blocks[0][Math.floor(index/vaultId.split("").length * (2 ** 3))].push(character.charCodeAt(0))
                             })
-                            return Object.entries(blocks).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[1].length) % 9).join("")
+                            password.split("").forEach((character, index) => {
+                                if (!blocks[1][Math.floor(index/password.split("").length * (2 ** 3))]) blocks[1][Math.floor(index/password.split("").length * (2 ** 3))] = []
+                                blocks[1][Math.floor(index/password.split("").length * (2 ** 3))].push(character.charCodeAt(0))
+                            })
+                            blocks = blocks.map((block) => Object.entries(block).map((block) => Math.round(block[1].reduce((previous, value) => { return previous + value })/block[1].length)))
+                            return blocks[0].map((character, index) => (blocks[0][index] ^ blocks[1][index]) % 9).join("")
                         })()) return null
                         key = (function(){
                             blocks = [{}, {}]
@@ -239,6 +603,7 @@
                             return Array.from({ length: blocks[0].length + blocks[1].length }, (value, index) => (blocks[0][index % blocks[0].length] ^ blocks[1][index % blocks[1].length]))
                         })()
                         return {
+                            id: vaults[vaultId].hashed,
                             emails: {
                                 create(email) {
                                     if (vaults[vaultId].services[email]) return null
@@ -262,6 +627,7 @@
                                 }
                             },
                             services(email) {
+                                console.log(vaults[vaultId].services[email])
                                 if (!vaults[vaultId].services[email]) return null
                                 return {
                                     create(name) {
@@ -321,56 +687,183 @@
                         unlock: document.getElementById("unlock-button-unlock")
                     }
                 }
+            },
+            default: {
+                home: {
+                    lists: {
+                        emails: document.getElementById("home-ul-emails"),
+                        services: document.getElementById("home-ul-services")
+                    },
+                    span: {
+                        vaultId: document.getElementById("home-span-vaultId")
+                    },
+                    overlay: [{
+                        password: [{
+                            heading: {
+                                name: document.getElementById("home-overlay-h1-name")
+                            },
+                            span: {
+                                email: document.getElementById("home-overlay-span-email")
+                            },
+                            button: {
+                                copy: document.getElementById("home-overlay-button-copy"),
+                                eye: document.getElementById("home-overlay-button-eye"),
+                                close: document.getElementById("home-overlay-button-close")
+                            },
+                            image: {
+                                logo: document.getElementById("home-overlay-image-logo")
+                            }
+                        }, document.getElementById("password-section")],
+                        create: [{
+
+                        }, document.getElementById("create-section")]
+                    }, document.getElementById("home-overlay")]
+                }
             }
         }
         window.addEventListener("load", () => {
-            window.addEventListener("hashchange", (event) => {
-                event.hash = JSON.parse(atob(window.location.hash.split("#")[1]))
-                if (event.hash[0] === "tab") {
-                    if (event.hash[1] === "vaults-tab") {
-                        elements.login.vaults.list.innerHTML = `<li>No vaults available. <a href="#WyJ0YWIiLCJjcmVhdGUtdmF1bHQtdGFiIl0=">Create one</a>.</li>`
-                        API.vaults.all().forEach((vault) => {
-                            vault = [vault, document.createElement("li")]
-                            vault[1].innerHTML = `
-                                <div class="info">
-                                    <i class="fa-solid fa-vault"></i>
-                                    <div>
-                                        <h1>${vault[0][0]}</h1>
-                                        <span>${vault[0][1]}</span>
-                                    </div>
-                                </div>
-                                <a href="#${btoa(JSON.stringify(["tab", "unlock-tab", vault[0][1]]))}">Unlock</a>
-                            `
-                            elements.login.vaults.list.appendChild(vault[1])
-                        })
-                    } else if (event.hash[1] === "create-vault-tab") {
-                        elements.login.create.buttons.create.onclick = function() {
-                            if (API.vaults.create(elements.login.create.inputs.name.value, elements.login.create.inputs.password.value)) {
-                                if (window.vault = API.vaults.unlock(elements.login.create.inputs.name.value, elements.login.create.inputs.password.value)) {
-                                    window.location.hash = "#" + btoa(JSON.stringify(["tab", "emails-tab"]))
-                                }
-                            } else {
-                                console.log("failed.")
-                            }
-                        }
-                    } else if (event.hash[1] === "unlock-tab" && event.hash[2]) {
-                        elements.login.unlock.span.name.textContent = "Vault #" + event.hash[2]
-                        elements.login.unlock.buttons.unlock.onclick = function() {
-                            if (window.vault = API.vaults.unlock(API.vaults.all().filter((vault) => vault[1] === event.hash[2]).pop()[0], elements.login.unlock.inputs.password.value)) {
-                                window.location.hash = "#" + btoa(JSON.stringify(["tab", "emails-tab"]))
-                            } else {
-                                console.log("failed")
-                            }
-                        }
-                    } else if (event.hash[1] === "emails-tab") {
-                        console.log(window.vault.emails.all())
+            window.images = {
+                "emails": {
+                    "Gmail by Google": {
+                        "identifier": ["gmail.com"],
+                        "logo": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg"
+                    },
+                    "Proton Mail": {
+                        "identifier": ["proton.me"],
+                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://protonmail.com&size=32"
                     }
-                    selectTab(event.hash[1])
+                },
+                "services": {
+                    "starbucks.com": {
+                        "name": "Starbucks",
+                        "logo": "https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg"
+                    },
+                    "spotify.com": {
+                        "name": "Spotify",
+                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://spotify.com&size=32"
+                    },
+                    "bible.com": {
+                        "name": "YouVersion",
+                        "logo": "https://d347bo4ltvvnaz.cloudfront.net/images/preview/YV4C_BibleAppIcon.jpg"
+                    },
+                    "instagram.com": {
+                        "name": "Instagram",
+                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://instagram.com&size=32"
+                    },
+                    "mcdonalds.com": {
+                        "name": "McDonald's",
+                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mcdonalds.com&size=32"
+                    },
+                    "github.com": {
+                        "name": "GitHub",
+                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://github.com&size=32"
+                    }
                 }
-                console.log(event.hash)
+            }
+            window.addEventListener("hashchange", (event) => {
+                if (window.location.hash.length > 2) {
+                    if (/^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/.test(window.location.hash.split("#")[1])) {
+                        event.hash = JSON.parse(atob(window.location.hash.split("#")[1]))
+                        if (event.hash[0] === "tab") {
+                            if (event.hash[1] === "vaults-tab") {
+                                elements.login.vaults.list.innerHTML = `<li>No vaults available. <a href="#WyJ0YWIiLCJjcmVhdGUtdmF1bHQtdGFiIl0=">Create one</a>.</li>`
+                                API.vaults.all().forEach((vault) => {
+                                    vault = [vault, document.createElement("li")]
+                                    vault[1].innerHTML = `
+                                        <div class="info">
+                                            <i class="fa-solid fa-vault"></i>
+                                            <div>
+                                                <h1>${vault[0][0]}</h1>
+                                                <span>${vault[0][1]}</span>
+                                            </div>
+                                        </div>
+                                        <a href="#${btoa(JSON.stringify(["tab", "unlock-tab", vault[0][1]]))}">Unlock</a>
+                                    `
+                                    elements.login.vaults.list.appendChild(vault[1])
+                                })
+                            } else if (event.hash[1] === "create-vault-tab") {
+                                elements.login.create.buttons.create.onclick = function() {
+                                    if (API.vaults.create(elements.login.create.inputs.name.value, elements.login.create.inputs.password.value)) {
+                                        if (window.vault = API.vaults.unlock(elements.login.create.inputs.name.value, elements.login.create.inputs.password.value)) {
+                                            window.location.hash = "#" + btoa(JSON.stringify(["tab", "home-tab"]))
+                                        }
+                                    } else {
+                                        console.log("failed.")
+                                    }
+                                }
+                            } else if (event.hash[1] === "unlock-tab" && event.hash[2]) {
+                                elements.login.unlock.span.name.textContent = "Vault #" + event.hash[2]
+                                elements.login.unlock.buttons.unlock.onclick = function() {
+                                    if (window.vault = API.vaults.unlock(API.vaults.all().filter((vault) => vault[1] === event.hash[2]).pop()[0], elements.login.unlock.inputs.password.value)) {
+                                        window.location.hash = "#" + btoa(JSON.stringify(["tab", "home-tab"]))
+                                    } else {
+                                        console.log("failed")
+                                    }
+                                }
+                            } else if (event.hash[1] === "home-tab") {
+                                elements.default.home.span.vaultId.textContent = `#${window.vault.id}`
+                                elements.default.home.lists.emails.innerHTML = `<li>No emails found. <a>Add one</a>.</li>`
+                                elements.default.home.lists.services.innerHTML = `<li>No services found. <a>Add one</a>.</li>`
+                                window.vault.emails.all().forEach((email) => {
+                                    email = [email, document.createElement("li"), document.createElement("li")]
+                                    provider = Object.entries(window.images.emails).filter((provider) => provider[1].identifier.includes(email[0].split("@").pop())).pop()
+                                    email[1].innerHTML = `
+                                        <div><img src="${provider[1].logo}"></div>
+                                        <div class="info">
+                                            <h1>${email[0]}</h1>
+                                            <span>${provider[0]}</span>
+                                        </div>
+                                        <a href="#${btoa(JSON.stringify(["overlay", "password", [email]]))}"><i class="fa-solid fa-eye"></i></a>
+                                    `
+                                    email[2].className = "heading"
+                                    email[2].innerHTML = `
+                                        <div><img src="${provider[1].logo}"></div> ${email[0]} <b>${provider[0]}</b>
+                                    `
+                                    elements.default.home.lists.services.appendChild(email[2])
+                                    window.vault.services(email[0]).all().forEach((service) => {
+                                        service = [service, document.createElement("li")]
+                                        console.log(service[0])
+                                        service[1].innerHTML = `
+                                            <div><img src="https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg"></div>
+                                            <div class="info">
+                                                <h1>${window.images.services[service[0]].name}</h1>
+                                                <span>20 characters</span>
+                                            </div>
+                                            <a href="#${btoa(JSON.stringify(["overlay", "password", [email, service[0]]]))}"><i class="fa-solid fa-eye"></i></a>
+                                        `
+                                        elements.default.home.lists.services.appendChild(service[1])
+                                    })
+                                    elements.default.home.lists.emails.appendChild(email[1])
+                                })
+                            }
+                            selectTab(event.hash[1])
+                        } else if (event.hash[0] === "overlay") {
+                            Object.entries(elements.default.home.overlay[0]).forEach((section) => {
+                                if (section[0] === event.hash[1]) {
+                                    section[1][1].style.display = "block"
+                                } else {
+                                    section[1][1].style.display = "none"
+                                }
+                                console.log(section[1][1])
+                            })
+                            elements.default.home.overlay[1].style.display = "flex"
+                        }
+                        console.log(event.hash)
+                    } else {
+                        if (window.location.hash.split("#")[1] === "reset") {
+                            localStorage.removeItem("pass0")
+                            window.location.hash = "#"
+                            window.location.reload()
+                        }
+                    }
+                }
             })
+            window.vault = API.vaults.unlock("zaviergpt", "nm0sca9sm095")
+            window.location.hash = "#" + btoa(JSON.stringify(["tab", "home-tab"]))
+           /*
             if (window.location.hash.length > 2) window.location.hash = "#"
             window.location.hash = "#" + btoa(JSON.stringify(["tab", "vaults-tab"]))
+            */
         })
     </script>
 </html>
