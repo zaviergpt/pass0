@@ -102,7 +102,7 @@
                 border: 1px solid rgba(255, 255, 255, 0.1);
                 font-size: 15px;
                 padding: calc(15px/2) calc(15px/2 * 1.5);
-                color: #FFFFFF;
+                color: #EEEEEE;
                 width: calc(100% - ((15px/2 * 1.5) * 2) - 2px);
                 border-radius: 5px;
             }
@@ -114,7 +114,7 @@
                 margin-top: 20px;
             }
             .screen#login-screen .tab#create-vault-tab ul li:has(button) button, .screen#login-screen .tab#unlock-tab ul li:has(button) button {
-                background-color: #FFFFFF;
+                background-color: #EEEEEE;
                 color: #111111;
                 font-size: 15px;
                 padding: calc(15px/1.5) calc(15px * 1.5);
@@ -147,7 +147,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: #FFFFFF;
+                background-color: #EEEEEE;
                 padding: 2.5px;
                 color: #111111;
                 border-radius: 5px;
@@ -214,7 +214,7 @@
                 margin-top: 10px;
             }
             .screen#default-screen .tab#home-tab ul#home-ul-services li.heading div:has(img) {
-                background-color: #FFFFFF;
+                background-color: #EEEEEE;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -227,7 +227,7 @@
                 margin-left: 5px;
             }
             .screen#default-screen .tab#home-tab ul#home-ul-emails li:not(:first-child, .heading) div:has(img), .screen#default-screen .tab#home-tab ul#home-ul-services li:not(:first-child, .heading) div:has(img) {
-                background-color: #FFFFFF;
+                background-color: #EEEEEE;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -268,7 +268,7 @@
                 justify-content: center;
                 padding: 20px;
                 list-style-type: none;
-                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25))
+                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75))
             }
             .screen#default-screen ul.navigation li {
                 width: 50%;
@@ -276,7 +276,7 @@
             }
             .screen#default-screen ul.navigation li a {
                 font-size: calc(15px/1.25);
-                color: #FFFFFF;
+                color: #EEEEEE;
                 opacity: 0.5;
                 text-decoration: none;
             }
@@ -306,7 +306,7 @@
                 display: none;
             }
             .screen#default-screen div.overlay div.container div.section#password-section div:has(img) {
-                background-color: #FFFFFF;
+                background-color: #EEEEEE;
                 margin: 0px auto;
                 width: 50%;
                 aspect-ratio: 1;
@@ -359,7 +359,7 @@
                 margin-top: 20px;
             }
             .screen#default-screen div.overlay div.container div.section#password-section div:has(#home-overlay-button-close) #home-overlay-button-close {
-                background-color: #FFFFFF;
+                background-color: #EEEEEE;
                 color: #111111;
                 font-size: 15px;
                 padding: calc(15px/1.5) calc(15px * 1.5);
@@ -369,12 +369,18 @@
             .screen#default-screen div.overlay div.container ul.section#create-section {
                 list-style-type: none;
             }
+            .screen#default-screen div.overlay div.container ul.section#create-section li h1 {
+                font-size: calc(15px * 1.75)
+            }
+            .screen#default-screen div.overlay div.container ul.section#create-section li {
+                margin: 10px 0px;
+            }
             .screen#default-screen div.overlay div.container ul.section#create-section li span {
                 display: block;
                 font-size: calc(15px/1.125);
                 margin-bottom: calc((15px/1.125)/3);
             }
-            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) {
+            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select), .screen#default-screen div.overlay div.container ul.section#create-section li div:has(input) {
                 height: calc(15px * 2.5);
                 width: calc(100% - (1px * 2));
                 font-size: 15px;
@@ -385,23 +391,49 @@
                 border-radius: 5px;
                 padding: 0px 1px;
             }
-            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) div {
+            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) div, .screen#default-screen div.overlay div.container ul.section#create-section li div:has(input) div {
                 height: 100%;
                 aspect-ratio: 1;
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
-            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) div img {
+            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) div img, .screen#default-screen div.overlay div.container ul.section#create-section li div:has(input) div img {
                 height: 50%;
                 width: 50%;
+                background-color: rgba(0, 0, 0, 0.1)
             }
-            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) select {
+            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) div img:not([src]), .screen#default-screen div.overlay div.container ul.section#create-section li div:has(input) div img:not([src]) { background-color: rgba(0, 0, 0, 0.1) }
+            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) select, .screen#default-screen div.overlay div.container ul.section#create-section li div:has(input) input {
                 appearance: none;
                 background-color: rgba(0, 0, 0, 0);
                 text-align: left;
                 padding-right: 11.25px;
                 width: calc(100% - (11.25px * 1));
+            }
+            .screen#default-screen div.overlay div.container ul.section#create-section li:has(i) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px 0px;
+            }
+            .screen#default-screen div.overlay div.container ul.section#create-section li:has(i) button {
+                background-color: #EEEEEE;
+                color: #111111;
+                font-size: 15px;
+                padding: calc(15px/1.5) calc(15px * 1.5);
+                border-radius: calc(((15px/1.5) * 2) + 15px);
+                font-weight: 500;
+                margin: 0px 5px;
+            }
+            .screen#default-screen div.overlay div.container ul.section#create-section li:has(i) button i {
+                margin-right: 5px;
+            }
+            .screen#default-screen div.overlay div.container ul.section#create-section.emails li.emails:not(:has(i)), .screen#default-screen div.overlay div.container ul.section#create-section.services li.services:not(:has(i)) {
+                display: block;
+            }
+            .screen#default-screen div.overlay div.container ul.section#create-section.emails li.services, .screen#default-screen div.overlay div.container ul.section#create-section.services li.emails {
+                display: none;
             }
         </style>
     </head>
@@ -480,25 +512,46 @@
                         </div>
                     </div>
                     <ul class="section" id="create-section">
-                        <li>
+                        <li class="services">
+                            <h1>Add Service</h1>
+                        </li>
+                        <li class="services">
                             <span>Email</span>
                             <div>
                                 <div>
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg">
+                                    <img id="create-services-image-provider">
                                 </div>
-                                <select>
-                                    <option>blyde33@gmail.com</option>
-                                </select>
+                                <select id="create-services-select-email"></select>
                             </div>
                         </li>
-                        <li>
+                        <li class="services">
                             <span>Service</span>
                             <div>
                                 <div>
-                                    <img>
+                                    <img id="create-services-image-service">
                                 </div>
-                                <input type="text">
+                                <input type="text" id="create-services-input-service">
                             </div>
+                        </li>
+                        <li class="services">
+                            <button><i class="fa-solid fa-arrow-left"></i> Back</button>
+                            <button><i class="fa-solid fa-plus"></i> Add</button>
+                        </li>
+                        <li class="emails">
+                            <h1>Add Email</h1>
+                        </li>
+                        <li class="emails">
+                            <span>Email</span>
+                            <div>
+                                <div>
+                                    <img id="create-emails-image-provider">
+                                </div>
+                                <input type="text" id="create-emails-input-email">
+                            </div>
+                        </li>
+                        <li class="emails">
+                            <button style="background-color: rgba(255, 255, 255, 0.075); color: #EEEEEE"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                            <button><i class="fa-solid fa-plus"></i> Add</button>
                         </li>
                     </ul>
                 </div>
@@ -715,7 +768,26 @@
                             }
                         }, document.getElementById("password-section")],
                         create: [{
-
+                            services: {
+                                images: {
+                                    provider: document.getElementById("create-services-image-provider"),
+                                    service: document.getElementById("create-services-image-service")
+                                },
+                                select: {
+                                    email: document.getElementById("create-services-select-email")
+                                },
+                                input: {
+                                    service: [document.getElementById("create-services-input-service"), null]
+                                }
+                            },
+                            emails: {
+                                images: {
+                                    provider: document.getElementById("create-emails-image-provider")
+                                },
+                                input: {
+                                    email: document.getElementById("create-emails-input-email")
+                                }
+                            }
                         }, document.getElementById("create-section")]
                     }, document.getElementById("home-overlay")]
                 }
@@ -840,11 +912,25 @@
                         } else if (event.hash[0] === "overlay") {
                             Object.entries(elements.default.home.overlay[0]).forEach((section) => {
                                 if (section[0] === event.hash[1]) {
+                                    console.log(section)
+                                    if (section[0] === "password") {
+
+                                    } else if (section[0] === "create") {
+                                        if (event.hash[2] === "services") {
+                                            section[1][0].services.input.service[0].addEventListener("keyup", () => {
+                                                if (section[1][0].services.input.service[1]) clearTimeout(section[1][0].services.input.service[1])
+                                                section[1][0].services.input.service[1] = setTimeout(function(){
+                                                    Object.entries(window.images.services).filter((service) => service[0].toLowerCase().includes(section[1][0].services.input.service[0].value.toLowerCase())).pop()[0]
+                                                }, 1000)
+                                            })
+                                        }
+                                        section[1][1].className = "section "  + event.hash[2]
+                                        console.log(section, event.hash[2])
+                                    }
                                     section[1][1].style.display = "block"
                                 } else {
                                     section[1][1].style.display = "none"
                                 }
-                                console.log(section[1][1])
                             })
                             elements.default.home.overlay[1].style.display = "flex"
                         }
