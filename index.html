@@ -676,7 +676,7 @@
                                 all() {
                                     return Object.entries(vaults[vaultId].services).map((email) => email[0])
                                 },
-                                generate(email, length=20) {
+                                generate(email, length=16) {
                                     if (!vaults[vaultId].services[email]) return null
                                     blocks = [key, {}]
                                     characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`1234567890-=[];',./~!@#$%^&*()_+{}|:<>?"
@@ -700,7 +700,7 @@
                                     all() {
                                         return vaults[vaultId].services[email]
                                     },
-                                    generate(name, length=20) {
+                                    generate(name, length=16) {
                                         if (!vaults[vaultId].services[email].includes(name)) return null
                                         blocks = [key, {}, {}]
                                         characters = "?><:|}{+_)(*&^%$#@!~/.,';][=-0987654321`ZYXWVUTSRQPONMLKJIHGFEDCBAzyxwvutsrqponmlkjihgfedcba"
@@ -943,7 +943,7 @@
                                             <div><img src="${window.images.services[service[0]].logo}"></div>
                                             <div class="info">
                                                 <h1>${window.images.services[service[0]].name}</h1>
-                                                <span>20 characters</span>
+                                                <span>16 characters</span>
                                             </div>
                                             <a href="#${btoa(JSON.stringify(["overlay", "password", [email, service[0]]]))}"><i class="fa-solid fa-eye"></i></a>
                                         `
