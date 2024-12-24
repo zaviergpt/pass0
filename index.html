@@ -19,7 +19,7 @@
             }
             body {
                 background-color: #111111;
-                color: #EEEEEE;
+                color: #FFFFFF;
                 font-size: 15px;
             }
             .screen, .screen .tab {
@@ -102,7 +102,7 @@
                 border: 1px solid rgba(255, 255, 255, 0.1);
                 font-size: 15px;
                 padding: calc(15px/2) calc(15px/2 * 1.5);
-                color: #EEEEEE;
+                color: #FFFFFF;
                 width: calc(100% - ((15px/2 * 1.5) * 2) - 2px);
                 border-radius: 5px;
             }
@@ -114,7 +114,7 @@
                 margin-top: 20px;
             }
             .screen#login-screen .tab#create-vault-tab ul li:has(button) button, .screen#login-screen .tab#unlock-tab ul li:has(button) button {
-                background-color: #EEEEEE;
+                background-color: #FFFFFF;
                 color: #111111;
                 font-size: 15px;
                 padding: calc(15px/1.5) calc(15px * 1.5);
@@ -147,7 +147,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: #EEEEEE;
+                background-color: #FFFFFF;
                 padding: 2.5px;
                 color: #111111;
                 border-radius: 5px;
@@ -209,17 +209,18 @@
                 align-items: center;
                 justify-content: left;
                 margin-top: 15px;
+                font-size: calc(15px/1.1)
             }
             .screen#default-screen .tab#home-tab ul#home-ul-services :nth-child(1 of li.heading) {
                 margin-top: 10px;
             }
             .screen#default-screen .tab#home-tab ul#home-ul-services li.heading div:has(img) {
-                background-color: #EEEEEE;
+                background-color: #FFFFFF;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 height: calc(50px/1.75);
-                margin-right: calc((50px/1.75)/3);
+                margin-right: calc((50px/1.75)/2.5);
                 aspect-ratio: 1;
                 border-radius: 5px;
             }
@@ -227,7 +228,7 @@
                 margin-left: 5px;
             }
             .screen#default-screen .tab#home-tab ul#home-ul-emails li:not(:first-child, .heading) div:has(img), .screen#default-screen .tab#home-tab ul#home-ul-services li:not(:first-child, .heading) div:has(img) {
-                background-color: #EEEEEE;
+                background-color: #FFFFFF;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -254,6 +255,7 @@
                 background-color: rgba(255, 255, 255, 0.05);
                 color: rgba(255, 255, 255, 0.75);
                 border: 1px solid rgba(255, 255, 255, 0.05);
+                text-decoration: none;
             }
             .screen#default-screen .tab#home-tab ul#home-ul-emails li:not(:first-child, .heading) div.info h1, .screen#default-screen .tab#home-tab ul#home-ul-services li:not(:first-child, .heading) div.info h1 {
                 font-size: calc(15px * 1.125);
@@ -266,6 +268,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                z-index: 100;
                 padding: 20px;
                 list-style-type: none;
                 background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75))
@@ -276,7 +279,7 @@
             }
             .screen#default-screen ul.navigation li a {
                 font-size: calc(15px/1.25);
-                color: #EEEEEE;
+                color: #FFFFFF;
                 opacity: 0.5;
                 text-decoration: none;
             }
@@ -288,7 +291,7 @@
                 opacity: 1;
             }
             .screen#default-screen div.overlay {
-                position: absolute;
+                position: fixed;
                 top: 0;
                 left: 0;
                 right: 0;
@@ -298,6 +301,7 @@
                 display: none;
                 align-items: center;
                 justify-content: center;
+                z-index: 1000;
             }
             .screen#default-screen div.overlay div.container {
                 width: 250px;
@@ -306,7 +310,7 @@
                 display: none;
             }
             .screen#default-screen div.overlay div.container div.section#password-section div:has(img) {
-                background-color: #EEEEEE;
+                background-color: #FFFFFF;
                 margin: 0px auto;
                 width: 50%;
                 aspect-ratio: 1;
@@ -317,6 +321,7 @@
             }
             .screen#default-screen div.overlay div.container div.section#password-section div:has(img) img {
                 width: 50%;
+                image-rendering: crisp-edges;
             }
             .screen#default-screen div.overlay div.container div.section#password-section div.info {
                 text-align: center;
@@ -329,7 +334,7 @@
                 margin-bottom: 2.5px;
             }
             .screen#default-screen div.overlay div.container div.section#password-section div:has(input) {
-                background-color: rgba(255, 255, 255, 0.9);
+                background-color: #FFFFFF;
                 padding: 2.5px;
                 display: flex;
                 align-items: center;
@@ -359,7 +364,7 @@
                 margin-top: 20px;
             }
             .screen#default-screen div.overlay div.container div.section#password-section div:has(#home-overlay-button-close) #home-overlay-button-close {
-                background-color: #EEEEEE;
+                background-color: #FFFFFF;
                 color: #111111;
                 font-size: 15px;
                 padding: calc(15px/1.5) calc(15px * 1.5);
@@ -387,7 +392,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: rgba(255, 255, 255, 0.9);
+                background-color: #FFFFFF;
                 border-radius: 5px;
                 padding: 0px 1px;
             }
@@ -401,9 +406,14 @@
             .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) div img, .screen#default-screen div.overlay div.container ul.section#create-section li div:has(input) div img {
                 height: 50%;
                 width: 50%;
-                background-color: rgba(0, 0, 0, 0.1)
+                opacity: 1;
             }
-            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) div img:not([src]), .screen#default-screen div.overlay div.container ul.section#create-section li div:has(input) div img:not([src]) { background-color: rgba(0, 0, 0, 0.1) }
+            .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) div:has(img[src=""]), .screen#default-screen div.overlay div.container ul.section#create-section li div:has(input) div:has(img[src=""]) {
+                height: 0px;
+                width: 0px;
+                margin-right: 11.25px;
+                opacity: 0;
+            }
             .screen#default-screen div.overlay div.container ul.section#create-section li div:has(select) select, .screen#default-screen div.overlay div.container ul.section#create-section li div:has(input) input {
                 appearance: none;
                 background-color: rgba(0, 0, 0, 0);
@@ -418,7 +428,7 @@
                 margin: 20px 0px;
             }
             .screen#default-screen div.overlay div.container ul.section#create-section li:has(i) button {
-                background-color: #EEEEEE;
+                background-color: #FFFFFF;
                 color: #111111;
                 font-size: 15px;
                 padding: calc(15px/1.5) calc(15px * 1.5);
@@ -503,12 +513,12 @@
                             <span id="home-overlay-span-email">blyde33@gmail.com</span>
                         </div>
                         <div>
-                            <input type="text">
+                            <input type="text" id="home-overlay-input-password">
                             <button id="home-overlay-button-copy"><i class="fa-solid fa-copy"></i></button>
                             <button id="home-overlay-button-eye"><i class="fa-solid fa-eye"></i></button>
                         </div>
                         <div>
-                            <button id="home-overlay-button-close">Close</button>
+                            <button id="home-overlay-button-close" onclick="window.location.hash = '#WyJ0YWIiLCJob21lLXRhYiJd'">Close</button>
                         </div>
                     </div>
                     <ul class="section" id="create-section">
@@ -519,7 +529,7 @@
                             <span>Email</span>
                             <div>
                                 <div>
-                                    <img id="create-services-image-provider">
+                                    <img id="create-services-image-provider" src="">
                                 </div>
                                 <select id="create-services-select-email"></select>
                             </div>
@@ -528,14 +538,14 @@
                             <span>Service</span>
                             <div>
                                 <div>
-                                    <img id="create-services-image-service">
+                                    <img id="create-services-image-service" src="">
                                 </div>
-                                <input type="text" id="create-services-input-service">
+                                <select id="create-services-select-service"></select>
                             </div>
                         </li>
                         <li class="services">
-                            <button><i class="fa-solid fa-arrow-left"></i> Back</button>
-                            <button><i class="fa-solid fa-plus"></i> Add</button>
+                            <button id="create-services-button-back" style="background-color: rgba(255, 255, 255, 0.075); color: #FFFFFF" onclick="window.location.hash = '#WyJ0YWIiLCJob21lLXRhYiJd'"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                            <button id="create-services-button-add"><i class="fa-solid fa-plus"></i> Add</button>
                         </li>
                         <li class="emails">
                             <h1>Add Email</h1>
@@ -544,14 +554,14 @@
                             <span>Email</span>
                             <div>
                                 <div>
-                                    <img id="create-emails-image-provider">
+                                    <img id="create-emails-image-provider" src="">
                                 </div>
-                                <input type="text" id="create-emails-input-email">
+                                <input type="text" id="create-emails-input-email" autocomplete="off">
                             </div>
                         </li>
                         <li class="emails">
-                            <button style="background-color: rgba(255, 255, 255, 0.075); color: #EEEEEE"><i class="fa-solid fa-arrow-left"></i> Back</button>
-                            <button><i class="fa-solid fa-plus"></i> Add</button>
+                            <button id="create-emails-button-back" style="background-color: rgba(255, 255, 255, 0.075); color: #FFFFFF" onclick="window.location.hash = '#WyJ0YWIiLCJob21lLXRhYiJd'"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                            <button id="create-emails-button-add"><i class="fa-solid fa-plus"></i> Add</button>
                         </li>
                     </ul>
                 </div>
@@ -604,7 +614,6 @@
             return {
                 vaults: {
                     all() {
-                        console.log(Object.entries(vaults))
                         return Object.entries(vaults).map((vault) => [vault[0], vault[1].hashed])
                     },
                     create(name, password) {
@@ -680,7 +689,6 @@
                                 }
                             },
                             services(email) {
-                                console.log(vaults[vaultId].services[email])
                                 if (!vaults[vaultId].services[email]) return null
                                 return {
                                     create(name) {
@@ -758,13 +766,16 @@
                             span: {
                                 email: document.getElementById("home-overlay-span-email")
                             },
-                            button: {
+                            buttons: {
                                 copy: document.getElementById("home-overlay-button-copy"),
                                 eye: document.getElementById("home-overlay-button-eye"),
                                 close: document.getElementById("home-overlay-button-close")
                             },
-                            image: {
-                                logo: document.getElementById("home-overlay-image-logo")
+                            images: {
+                                logo: document.getElementById("home-overlay-img-logo")
+                            },
+                            inputs: {
+                                password: document.getElementById("home-overlay-input-password")
                             }
                         }, document.getElementById("password-section")],
                         create: [{
@@ -774,18 +785,24 @@
                                     service: document.getElementById("create-services-image-service")
                                 },
                                 select: {
-                                    email: document.getElementById("create-services-select-email")
+                                    email: document.getElementById("create-services-select-email"),
+                                    service: document.getElementById("create-services-select-service")
                                 },
-                                input: {
-                                    service: [document.getElementById("create-services-input-service"), null]
+                                buttons: {
+                                    back: document.getElementById("create-services-button-back"),
+                                    add: document.getElementById("create-services-button-add")
                                 }
                             },
                             emails: {
                                 images: {
                                     provider: document.getElementById("create-emails-image-provider")
                                 },
-                                input: {
-                                    email: document.getElementById("create-emails-input-email")
+                                inputs: {
+                                    email: [document.getElementById("create-emails-input-email"), null, ""]
+                                },
+                                buttons: {
+                                    back: document.getElementById("create-emails-button-back"),
+                                    add: document.getElementById("create-emails-button-add")
                                 }
                             }
                         }, document.getElementById("create-section")]
@@ -802,7 +819,7 @@
                     },
                     "Proton Mail": {
                         "identifier": ["proton.me"],
-                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://protonmail.com&size=32"
+                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://protonmail.com&size=64"
                     }
                 },
                 "services": {
@@ -812,28 +829,52 @@
                     },
                     "spotify.com": {
                         "name": "Spotify",
-                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://spotify.com&size=32"
+                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://spotify.com&size=64"
                     },
-                    "bible.com": {
+                    "youversion.com": {
                         "name": "YouVersion",
-                        "logo": "https://d347bo4ltvvnaz.cloudfront.net/images/preview/YV4C_BibleAppIcon.jpg"
+                        "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.youversion.com&size=64"
                     },
                     "instagram.com": {
                         "name": "Instagram",
-                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://instagram.com&size=32"
+                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://instagram.com&size=64"
                     },
                     "mcdonalds.com": {
                         "name": "McDonald's",
-                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mcdonalds.com&size=32"
+                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mcdonalds.com&size=64"
                     },
                     "github.com": {
                         "name": "GitHub",
-                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://github.com&size=32"
+                        "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://github.com&size=64"
+                    },
+                    "riotgames.com": {
+                        "name": "Riot Games",
+                        "logo": "https://raw.githubusercontent.com/github/explore/206772d6289c3cdd1b4dca05aacdeac7e1834dc9/topics/riot-games/riot-games.png"
+                    },
+                    "steampowered.com": {
+                        "name": "Steam",
+                        "logo": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://store.steampowered.com&size=64"
+                    },
+                    "discord.com": {
+                        "name": "Discord",
+                        "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://discord.com&size=64"
+                    },
+                    "facebook.com": {
+                        "name": "Facebook",
+                        "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://facebook.com&size=64"
+                    },
+                    "epicgames.com": {
+                        "name": "Epic Games",
+                        "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://epicgames.com&size=64"
+                    },
+                    "duolingo.com": {
+                        "name": "Duolingo",
+                        "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://duolingo.com&size=64"
                     }
                 }
             }
             window.addEventListener("hashchange", (event) => {
-                if (window.location.hash.length > 2) {
+                if (window.location.hash.length > 3) {
                     if (/^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/.test(window.location.hash.split("#")[1])) {
                         event.hash = JSON.parse(atob(window.location.hash.split("#")[1]))
                         if (event.hash[0] === "tab") {
@@ -894,9 +935,8 @@
                                     elements.default.home.lists.services.appendChild(email[2])
                                     window.vault.services(email[0]).all().forEach((service) => {
                                         service = [service, document.createElement("li")]
-                                        console.log(service[0])
                                         service[1].innerHTML = `
-                                            <div><img src="https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg"></div>
+                                            <div><img src="${window.images.services[service[0]].logo}"></div>
                                             <div class="info">
                                                 <h1>${window.images.services[service[0]].name}</h1>
                                                 <span>20 characters</span>
@@ -912,20 +952,78 @@
                         } else if (event.hash[0] === "overlay") {
                             Object.entries(elements.default.home.overlay[0]).forEach((section) => {
                                 if (section[0] === event.hash[1]) {
-                                    console.log(section)
                                     if (section[0] === "password") {
-
+                                        if (event.hash[2].length === 1) {
+                                            provider = Object.entries(window.images.emails).filter((provider) => provider[1].identifier.includes(event.hash[2][0][0].split("@")[1])).pop()
+                                            section[1][0].heading.name.textContent = event.hash[2][0][0]
+                                            section[1][0].span.email.textContent = provider[0]
+                                            section[1][0].inputs.password.value = window.vault.emails.generate(event.hash[2][0][0])
+                                            section[1][0].images.logo.src = provider[1].logo
+                                        } else if (event.hash[2].length === 2) {
+                                            service = Object.entries(window.images.services).filter((service) => service[0] === event.hash[2][1]).pop()
+                                            section[1][0].heading.name.textContent = service[1].name
+                                            section[1][0].span.email.textContent = event.hash[2][0][0]
+                                            section[1][0].inputs.password.value = window.vault.services(event.hash[2][0][0]).generate(event.hash[2][1])
+                                            section[1][0].images.logo.src = service[1].logo
+                                        }
                                     } else if (section[0] === "create") {
-                                        if (event.hash[2] === "services") {
-                                            section[1][0].services.input.service[0].addEventListener("keyup", () => {
-                                                if (section[1][0].services.input.service[1]) clearTimeout(section[1][0].services.input.service[1])
-                                                section[1][0].services.input.service[1] = setTimeout(function(){
-                                                    Object.entries(window.images.services).filter((service) => service[0].toLowerCase().includes(section[1][0].services.input.service[0].value.toLowerCase())).pop()[0]
-                                                }, 1000)
+                                        if (event.hash[2] === "emails") {
+                                            section[1][0].emails.inputs.email[0].addEventListener("keyup", () => {
+                                                if (section[1][0].emails.inputs.email[1]) clearTimeout(section[1][0].emails.inputs.email[1])
+                                                if (section[1][0].emails.inputs.email[2] !== section[1][0].emails.inputs.email[0].value) {
+                                                    section[1][0].emails.images.provider.src = ""
+                                                    section[1][0].emails.buttons.add.style.opacity = 0.5
+                                                    section[1][0].emails.buttons.add.disabled = true
+                                                }
+                                                if (section[1][0].emails.inputs.email[0].value.length > 0) {
+                                                    section[1][0].emails.inputs.email[1] = setTimeout(function(){
+                                                        if (section[1][0].emails.inputs.email[0].value.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+                                                            email = section[1][0].emails.inputs.email[0].value.split("@")
+                                                            provider = Object.entries(window.images.emails).filter((provider) => provider[1].identifier.includes(email[1])).pop()
+                                                            if (provider) {
+                                                                section[1][0].emails.images.provider.src = provider[1].logo
+                                                                section[1][0].emails.inputs.email[2] = section[1][0].emails.inputs.email[0].value
+                                                                section[1][0].emails.buttons.add.disabled = false
+                                                                section[1][0].emails.buttons.add.style.opacity = 1
+                                                            }
+                                                        } else {
+                                                            section[1][0].emails.buttons.add.style.opacity = 0.5
+                                                            section[1][0].emails.buttons.add.disabled = true
+                                                        }
+                                                    }, 100) 
+                                                }
                                             })
+                                            section[1][0].emails.buttons.add.onclick = function() {
+                                                if (window.vault.emails.create(section[1][0].emails.inputs.email[0].value)) {
+                                                    window.location.hash = "#" + btoa(JSON.stringify(["tab", "home-tab"]))
+                                                } else {
+                                                    console.log("failed.")
+                                                }
+                                            }
+                                            section[1][0].emails.inputs.email[0].value = ""
+                                            section[1][0].emails.buttons.add.style.opacity = 0.5
+                                            section[1][0].emails.buttons.add.disabled = true
+                                            section[1][0].emails.images.provider.src = ""
+                                        } else if (event.hash[2] === "services") {
+                                            section[1][0].services.select.email.innerHTML = window.vault.emails.all().map((email) => (`<option value="${email}">${email}</option>`))
+                                            section[1][0].services.select.service.innerHTML = Object.entries(window.images.services).sort((a, b) => a[1].name.localeCompare(b[1].name)).map((service) => `<option value="${service[0]}">${service[1].name}</option>`)
+                                            section[1][0].services.select.email.addEventListener("change", (event) => {
+                                                section[1][0].services.images.provider.src = Object.entries(window.images.emails).filter((provider) => provider[1].identifier.includes(section[1][0].services.select.email.value.split("@")[1])).pop()[1].logo
+                                            })
+                                            section[1][0].services.select.service.addEventListener("change", (event) => {
+                                                section[1][0].services.images.service.src = Object.entries(window.images.services).filter((provider) => provider[0] === section[1][0].services.select.service.value).pop()[1].logo
+                                            })
+                                            section[1][0].services.buttons.add.onclick = function() {
+                                                if (window.vault.services(section[1][0].services.select.email.value) && window.vault.services(section[1][0].services.select.email.value).create(section[1][0].services.select.service.value)) {
+                                                    window.location.hash = "#" + btoa(JSON.stringify(["tab", "home-tab"]))
+                                                } else {
+                                                    console.log("failed.")
+                                                }
+                                            }
+                                            if (section[1][0].services.select.email.children.length) section[1][0].services.images.provider.src = Object.entries(window.images.emails).filter((provider) => provider[1].identifier.includes(section[1][0].services.select.email.value.split("@")[1])).pop()[1].logo
+                                            if (section[1][0].services.select.service.children.length) section[1][0].services.images.service.src = Object.entries(window.images.services).filter((provider) => provider[0] === section[1][0].services.select.service.value).pop()[1].logo
                                         }
                                         section[1][1].className = "section "  + event.hash[2]
-                                        console.log(section, event.hash[2])
                                     }
                                     section[1][1].style.display = "block"
                                 } else {
@@ -934,7 +1032,12 @@
                             })
                             elements.default.home.overlay[1].style.display = "flex"
                         }
-                        console.log(event.hash)
+                        if (event.oldURL && event.oldURL.includes("#") && /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/.test(event.oldURL.split("#")[1])) {
+                            event.oldHash = JSON.parse(atob(event.oldURL.split("#")[1]))
+                            if (event.oldHash[0] === "overlay") {
+                                elements.default.home.overlay[1].style.display = "none"
+                            }
+                        }
                     } else {
                         if (window.location.hash.split("#")[1] === "reset") {
                             localStorage.removeItem("pass0")
@@ -944,12 +1047,8 @@
                     }
                 }
             })
-            window.vault = API.vaults.unlock("zaviergpt", "nm0sca9sm095")
-            window.location.hash = "#" + btoa(JSON.stringify(["tab", "home-tab"]))
-           /*
             if (window.location.hash.length > 2) window.location.hash = "#"
             window.location.hash = "#" + btoa(JSON.stringify(["tab", "vaults-tab"]))
-            */
         })
     </script>
 </html>
