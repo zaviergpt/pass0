@@ -1053,6 +1053,17 @@
             })
             if (window.location.hash.length > 2) window.location.hash = "#"
             window.location.hash = "#" + btoa(JSON.stringify(["tab", "vaults-tab"]))
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('./worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered with scope:', registration.scope)
+                    })
+                    .catch(error => {
+                        console.error('Service Worker registration failed:', error)
+                    })
+                });
+            }
         })
     </script>
 </html>
