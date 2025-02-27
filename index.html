@@ -676,10 +676,10 @@
                                 all() {
                                     return Object.entries(vaults[vaultId].services).map((email) => email[0])
                                 },
-                                generate(email, length=16) {
+                                generate(email, length=2) {
                                     if (!vaults[vaultId].services[email]) return null
                                     blocks = [key, {}]
-                                    characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`1234567890-=[];',./~!@#$%^&*()_+{}|:<>?"
+                                    characters = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ`~1!2@3#4$5%6^7&8*9(0)-_=+[{]}|;:',<.>/?"
                                     email.split("").forEach((character, index) => {
                                         if (!blocks[1][Math.floor(index/email.split("").length * length)]) blocks[1][Math.floor(index/email.split("").length * length)] = []
                                         blocks[1][Math.floor(index/email.split("").length * length)].push(character.charCodeAt(0))
